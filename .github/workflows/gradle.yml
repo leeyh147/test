@@ -40,3 +40,4 @@ jobs:
       if: always()
       with:
         files: '**/build/test-results/test/TEST-*.xml'
+        token: ${{ github.token }}
