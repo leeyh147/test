@@ -9,4 +9,7 @@ class ExampleTest : FunSpec({
     test("테스트") {
         calculatorService.add(2, 5) shouldBe 7
     }
+    test("테스트2") {
+        calculatorService.add(2, 5) shouldBe 8
+    }
 })
