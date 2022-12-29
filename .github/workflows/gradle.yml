@@ -43,3 +43,4 @@ jobs:
       if: always()
       with:
         junit_files: '**/build/test-results/test/TEST-*.xml'
+        check_name: '📝테스트 리포트'	
