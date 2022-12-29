@@ -47,7 +47,7 @@ jobs:
       if: always()
       with:
         junit_files: '**/build/test-results/test/TEST-*.xml'
-        check_name: '📝 테스트 리포트'	
+        check_name: '📝 유닛 테스트 리포트'	
 
     - name: Add coverage to PR
       id: jacoco
@@ -57,3 +57,4 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         min-coverage-overall: 40
         min-coverage-changed-files: 60
+        title: '📝 테스트 커버리지 리포트'	
