@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 object Version {
     const val kotest = "5.1.0"
 }
@@ -8,6 +9,9 @@ plugins {
     id("io.spring.dependency-management") version "1.1.0"
     kotlin("jvm") version "1.6.20"
     kotlin("plugin.spring") version "1.6.20"
+
+    idea
+    jacoco
 }
 
 group = "com.example"
@@ -45,4 +49,22 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.test {
+    finalizedBy("jacocoTestReport")
+}
+
+jacoco {
+    toolVersion = "0.8.8"
+}
+
+tasks.jacocoTestReport {
+    reports {
+        html.required.set(false)
+        xml.required.set(true)
+        csv.required.set(true)
+    }
+
+    finalizedBy("jacocoTestCoverageVerification")
 }
